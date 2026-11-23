@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CampaignHourlyDivisor** | **int** | Campaign hourly send divisor, default 8 | [optional] 
 **EmailsPerDay** | **int** | Emails per day allowed | [optional] 
 **EmailsPerHour** | **int** | Emails per hour allowed | [optional] 
 **EmailsPerMonth** | **int** | Emails per month allowed | [optional] 

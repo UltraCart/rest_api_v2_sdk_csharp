@@ -33,6 +33,7 @@ namespace com.ultracart.admin.v2.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailSettings" /> class.
         /// </summary>
+        /// <param name="campaignHourlyDivisor">Campaign hourly send divisor, default 8.</param>
         /// <param name="emailsPerDay">Emails per day allowed.</param>
         /// <param name="emailsPerHour">Emails per hour allowed.</param>
         /// <param name="emailsPerMonth">Emails per month allowed.</param>
@@ -53,8 +54,9 @@ namespace com.ultracart.admin.v2.Model
         /// <param name="transactionalEspDomainUser">transactionalEspDomainUser.</param>
         /// <param name="transactionalEspDomainUuid">transactionalEspDomainUuid.</param>
         /// <param name="transactionalEspFriendlyName">transactionalEspFriendlyName.</param>
-        public EmailSettings(int emailsPerDay = default(int), int emailsPerHour = default(int), int emailsPerMonth = default(int), bool machineOpenIgnore = default(bool), string marketingEspDomainUser = default(string), string marketingEspDomainUuid = default(string), string marketingEspFriendlyName = default(string), string postcardFromAddress1 = default(string), string postcardFromAddress2 = default(string), string postcardFromCity = default(string), string postcardFromName = default(string), string postcardFromPostalCode = default(string), string postcardFromState = default(string), int requireOrderWithinLast = default(int), bool reviewsIoConfigured = default(bool), string smsEspTwilioUuid = default(string), string smsPhoneNumber = default(string), string transactionalEspDomainUser = default(string), string transactionalEspDomainUuid = default(string), string transactionalEspFriendlyName = default(string))
+        public EmailSettings(int campaignHourlyDivisor = default(int), int emailsPerDay = default(int), int emailsPerHour = default(int), int emailsPerMonth = default(int), bool machineOpenIgnore = default(bool), string marketingEspDomainUser = default(string), string marketingEspDomainUuid = default(string), string marketingEspFriendlyName = default(string), string postcardFromAddress1 = default(string), string postcardFromAddress2 = default(string), string postcardFromCity = default(string), string postcardFromName = default(string), string postcardFromPostalCode = default(string), string postcardFromState = default(string), int requireOrderWithinLast = default(int), bool reviewsIoConfigured = default(bool), string smsEspTwilioUuid = default(string), string smsPhoneNumber = default(string), string transactionalEspDomainUser = default(string), string transactionalEspDomainUuid = default(string), string transactionalEspFriendlyName = default(string))
         {
+            this.CampaignHourlyDivisor = campaignHourlyDivisor;
             this.EmailsPerDay = emailsPerDay;
             this.EmailsPerHour = emailsPerHour;
             this.EmailsPerMonth = emailsPerMonth;
@@ -76,6 +78,13 @@ namespace com.ultracart.admin.v2.Model
             this.TransactionalEspDomainUuid = transactionalEspDomainUuid;
             this.TransactionalEspFriendlyName = transactionalEspFriendlyName;
         }
+
+        /// <summary>
+        /// Campaign hourly send divisor, default 8
+        /// </summary>
+        /// <value>Campaign hourly send divisor, default 8</value>
+        [DataMember(Name="campaign_hourly_divisor", EmitDefaultValue=false)]
+        public int CampaignHourlyDivisor { get; set; }
 
         /// <summary>
         /// Emails per day allowed
@@ -211,6 +220,7 @@ namespace com.ultracart.admin.v2.Model
         {
             var sb = new StringBuilder();
             sb.Append("class EmailSettings {\n");
+            sb.Append("  CampaignHourlyDivisor: ").Append(CampaignHourlyDivisor).Append("\n");
             sb.Append("  EmailsPerDay: ").Append(EmailsPerDay).Append("\n");
             sb.Append("  EmailsPerHour: ").Append(EmailsPerHour).Append("\n");
             sb.Append("  EmailsPerMonth: ").Append(EmailsPerMonth).Append("\n");
@@ -265,6 +275,11 @@ namespace com.ultracart.admin.v2.Model
                 return false;
 
             return 
+                (
+                    this.CampaignHourlyDivisor == input.CampaignHourlyDivisor ||
+                    (this.CampaignHourlyDivisor != null &&
+                    this.CampaignHourlyDivisor.Equals(input.CampaignHourlyDivisor))
+                ) && 
                 (
                     this.EmailsPerDay == input.EmailsPerDay ||
                     (this.EmailsPerDay != null &&
@@ -376,6 +391,8 @@ namespace com.ultracart.admin.v2.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.CampaignHourlyDivisor != null)
+                    hashCode = hashCode * 59 + this.CampaignHourlyDivisor.GetHashCode();
                 if (this.EmailsPerDay != null)
                     hashCode = hashCode * 59 + this.EmailsPerDay.GetHashCode();
                 if (this.EmailsPerHour != null)

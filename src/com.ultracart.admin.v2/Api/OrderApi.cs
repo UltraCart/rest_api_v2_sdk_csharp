@@ -147,6 +147,29 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of BaseResponse</returns>
         ApiResponse<BaseResponse> CancelOrderWithHttpInfo (string orderId, bool? lockSelfShipOrders = default(bool?), bool? skipRefundAndHold = default(bool?));
         /// <summary>
+        /// Cancel an order with options
+        /// </summary>
+        /// <remarks>
+        /// Cancel an order on the UltraCart account, with the options in the request body.  If the success flag is false, then consult the error message for why it failed.  An empty request body behaves the same as cancelOrder. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="cancelRequest">Cancel order options</param>
+        /// <returns>BaseResponse</returns>
+        BaseResponse CancelOrderWithOptions (string orderId, OrderCancelRequest cancelRequest);
+
+        /// <summary>
+        /// Cancel an order with options
+        /// </summary>
+        /// <remarks>
+        /// Cancel an order on the UltraCart account, with the options in the request body.  If the success flag is false, then consult the error message for why it failed.  An empty request body behaves the same as cancelOrder. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="cancelRequest">Cancel order options</param>
+        /// <returns>ApiResponse of BaseResponse</returns>
+        ApiResponse<BaseResponse> CancelOrderWithOptionsWithHttpInfo (string orderId, OrderCancelRequest cancelRequest);
+        /// <summary>
         /// Delete an order
         /// </summary>
         /// <remarks>
@@ -960,6 +983,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of BaseResponse</returns>
         ApiResponse<BaseResponse> ResendShipmentConfirmationWithHttpInfo (string orderId);
         /// <summary>
+        /// Send update billing email
+        /// </summary>
+        /// <remarks>
+        /// Queues the update billing email to the customer on an order in Accounts Receivable, the same as the Send Billing Update button.  The email is sent within a minute.  The request is refused if the merchant has turned off the update billing notification, if a StoreFront communication flow handles unprocessed payments for the order, or if this method already sent the email for the order in the last 24 hours.  While the order is less than 7 days old, a reminder is sent every 2 days. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to send the update billing email for.</param>
+        /// <returns>BaseResponse</returns>
+        BaseResponse SendUpdateBillingEmail (string orderId);
+
+        /// <summary>
+        /// Send update billing email
+        /// </summary>
+        /// <remarks>
+        /// Queues the update billing email to the customer on an order in Accounts Receivable, the same as the Send Billing Update button.  The email is sent within a minute.  The request is refused if the merchant has turned off the update billing notification, if a StoreFront communication flow handles unprocessed payments for the order, or if this method already sent the email for the order in the last 24 hours.  While the order is less than 7 days old, a reminder is sent every 2 days. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to send the update billing email for.</param>
+        /// <returns>ApiResponse of BaseResponse</returns>
+        ApiResponse<BaseResponse> SendUpdateBillingEmailWithHttpInfo (string orderId);
+        /// <summary>
         /// Remove a refund block on an order
         /// </summary>
         /// <remarks>
@@ -1180,6 +1224,31 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (BaseResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<BaseResponse>> CancelOrderWithHttpInfoAsync (string orderId, bool? lockSelfShipOrders = default(bool?), bool? skipRefundAndHold = default(bool?), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Cancel an order with options
+        /// </summary>
+        /// <remarks>
+        /// Cancel an order on the UltraCart account, with the options in the request body.  If the success flag is false, then consult the error message for why it failed.  An empty request body behaves the same as cancelOrder. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="cancelRequest">Cancel order options</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of BaseResponse</returns>
+        System.Threading.Tasks.Task<BaseResponse> CancelOrderWithOptionsAsync (string orderId, OrderCancelRequest cancelRequest, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Cancel an order with options
+        /// </summary>
+        /// <remarks>
+        /// Cancel an order on the UltraCart account, with the options in the request body.  If the success flag is false, then consult the error message for why it failed.  An empty request body behaves the same as cancelOrder. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="cancelRequest">Cancel order options</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (BaseResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BaseResponse>> CancelOrderWithOptionsWithHttpInfoAsync (string orderId, OrderCancelRequest cancelRequest, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Delete an order
         /// </summary>
@@ -2059,6 +2128,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (BaseResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<BaseResponse>> ResendShipmentConfirmationWithHttpInfoAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Send update billing email
+        /// </summary>
+        /// <remarks>
+        /// Queues the update billing email to the customer on an order in Accounts Receivable, the same as the Send Billing Update button.  The email is sent within a minute.  The request is refused if the merchant has turned off the update billing notification, if a StoreFront communication flow handles unprocessed payments for the order, or if this method already sent the email for the order in the last 24 hours.  While the order is less than 7 days old, a reminder is sent every 2 days. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to send the update billing email for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of BaseResponse</returns>
+        System.Threading.Tasks.Task<BaseResponse> SendUpdateBillingEmailAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Send update billing email
+        /// </summary>
+        /// <remarks>
+        /// Queues the update billing email to the customer on an order in Accounts Receivable, the same as the Send Billing Update button.  The email is sent within a minute.  The request is refused if the merchant has turned off the update billing notification, if a StoreFront communication flow handles unprocessed payments for the order, or if this method already sent the email for the order in the last 24 hours.  While the order is less than 7 days old, a reminder is sent every 2 days. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to send the update billing email for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (BaseResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BaseResponse>> SendUpdateBillingEmailWithHttpInfoAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Remove a refund block on an order
         /// </summary>
@@ -3157,6 +3249,191 @@ namespace com.ultracart.admin.v2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("CancelOrder", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BaseResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (BaseResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
+        }
+
+        /// <summary>
+        /// Cancel an order with options Cancel an order on the UltraCart account, with the options in the request body.  If the success flag is false, then consult the error message for why it failed.  An empty request body behaves the same as cancelOrder. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="cancelRequest">Cancel order options</param>
+        /// <returns>BaseResponse</returns>
+        public BaseResponse CancelOrderWithOptions (string orderId, OrderCancelRequest cancelRequest)
+        {
+             ApiResponse<BaseResponse> localVarResponse = CancelOrderWithOptionsWithHttpInfo(orderId, cancelRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Cancel an order with options Cancel an order on the UltraCart account, with the options in the request body.  If the success flag is false, then consult the error message for why it failed.  An empty request body behaves the same as cancelOrder. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="cancelRequest">Cancel order options</param>
+        /// <returns>ApiResponse of BaseResponse</returns>
+        public ApiResponse<BaseResponse> CancelOrderWithOptionsWithHttpInfo (string orderId, OrderCancelRequest cancelRequest)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->CancelOrderWithOptions");
+            // verify the required parameter 'cancelRequest' is set
+            if (cancelRequest == null)
+                throw new ApiException(400, "Missing required parameter 'cancelRequest' when calling OrderApi->CancelOrderWithOptions");
+
+            var localVarPath = "/order/orders/{order_id}/cancel_with_options";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (cancelRequest != null && cancelRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(cancelRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = cancelRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CancelOrderWithOptions", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BaseResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (BaseResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
+        }
+
+        /// <summary>
+        /// Cancel an order with options Cancel an order on the UltraCart account, with the options in the request body.  If the success flag is false, then consult the error message for why it failed.  An empty request body behaves the same as cancelOrder. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="cancelRequest">Cancel order options</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of BaseResponse</returns>
+        public async System.Threading.Tasks.Task<BaseResponse> CancelOrderWithOptionsAsync (string orderId, OrderCancelRequest cancelRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<BaseResponse> localVarResponse = await CancelOrderWithOptionsWithHttpInfoAsync(orderId, cancelRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Cancel an order with options Cancel an order on the UltraCart account, with the options in the request body.  If the success flag is false, then consult the error message for why it failed.  An empty request body behaves the same as cancelOrder. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to cancel.</param>
+        /// <param name="cancelRequest">Cancel order options</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (BaseResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<BaseResponse>> CancelOrderWithOptionsWithHttpInfoAsync (string orderId, OrderCancelRequest cancelRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->CancelOrderWithOptions");
+            // verify the required parameter 'cancelRequest' is set
+            if (cancelRequest == null)
+                throw new ApiException(400, "Missing required parameter 'cancelRequest' when calling OrderApi->CancelOrderWithOptions");
+
+            var localVarPath = "/order/orders/{order_id}/cancel_with_options";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+            if (cancelRequest != null && cancelRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(cancelRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = cancelRequest; // byte array
+            }
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CancelOrderWithOptions", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -8892,6 +9169,163 @@ namespace com.ultracart.admin.v2.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("ResendShipmentConfirmation", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BaseResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (BaseResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
+        }
+
+        /// <summary>
+        /// Send update billing email Queues the update billing email to the customer on an order in Accounts Receivable, the same as the Send Billing Update button.  The email is sent within a minute.  The request is refused if the merchant has turned off the update billing notification, if a StoreFront communication flow handles unprocessed payments for the order, or if this method already sent the email for the order in the last 24 hours.  While the order is less than 7 days old, a reminder is sent every 2 days. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to send the update billing email for.</param>
+        /// <returns>BaseResponse</returns>
+        public BaseResponse SendUpdateBillingEmail (string orderId)
+        {
+             ApiResponse<BaseResponse> localVarResponse = SendUpdateBillingEmailWithHttpInfo(orderId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Send update billing email Queues the update billing email to the customer on an order in Accounts Receivable, the same as the Send Billing Update button.  The email is sent within a minute.  The request is refused if the merchant has turned off the update billing notification, if a StoreFront communication flow handles unprocessed payments for the order, or if this method already sent the email for the order in the last 24 hours.  While the order is less than 7 days old, a reminder is sent every 2 days. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to send the update billing email for.</param>
+        /// <returns>ApiResponse of BaseResponse</returns>
+        public ApiResponse<BaseResponse> SendUpdateBillingEmailWithHttpInfo (string orderId)
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->SendUpdateBillingEmail");
+
+            var localVarPath = "/order/orders/{order_id}/send_update_billing_email";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SendUpdateBillingEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<BaseResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (BaseResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(BaseResponse)));
+        }
+
+        /// <summary>
+        /// Send update billing email Queues the update billing email to the customer on an order in Accounts Receivable, the same as the Send Billing Update button.  The email is sent within a minute.  The request is refused if the merchant has turned off the update billing notification, if a StoreFront communication flow handles unprocessed payments for the order, or if this method already sent the email for the order in the last 24 hours.  While the order is less than 7 days old, a reminder is sent every 2 days. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to send the update billing email for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of BaseResponse</returns>
+        public async System.Threading.Tasks.Task<BaseResponse> SendUpdateBillingEmailAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<BaseResponse> localVarResponse = await SendUpdateBillingEmailWithHttpInfoAsync(orderId, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Send update billing email Queues the update billing email to the customer on an order in Accounts Receivable, the same as the Send Billing Update button.  The email is sent within a minute.  The request is refused if the merchant has turned off the update billing notification, if a StoreFront communication flow handles unprocessed payments for the order, or if this method already sent the email for the order in the last 24 hours.  While the order is less than 7 days old, a reminder is sent every 2 days. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="orderId">The order id to send the update billing email for.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (BaseResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<BaseResponse>> SendUpdateBillingEmailWithHttpInfoAsync (string orderId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'orderId' is set
+            if (orderId == null)
+                throw new ApiException(400, "Missing required parameter 'orderId' when calling OrderApi->SendUpdateBillingEmail");
+
+            var localVarPath = "/order/orders/{order_id}/send_update_billing_email";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (orderId != null) localVarPathParams.Add("order_id", this.Configuration.ApiClient.ParameterToString(orderId)); // path parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SendUpdateBillingEmail", localVarResponse);
                 if (exception != null) throw exception;
             }
 

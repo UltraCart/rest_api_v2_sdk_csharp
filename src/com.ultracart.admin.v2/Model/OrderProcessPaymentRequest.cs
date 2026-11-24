@@ -35,10 +35,12 @@ namespace com.ultracart.admin.v2.Model
         /// </summary>
         /// <param name="amount">Specific amount to bill (optional).  If not specified the total of the order is billed..</param>
         /// <param name="cardVerificationNumberToken">Card verification number token from hosted fields used during credit card transaction processing (optional).</param>
-        public OrderProcessPaymentRequest(decimal amount = default(decimal), string cardVerificationNumberToken = default(string))
+        /// <param name="rotatingTransactionGatewayCode">Rotating transaction gateway code to process the payment through (optional).  Must be an active rotating transaction gateway on the account.  The charge is attempted on that gateway only, without cascading to other gateways, the same as choosing a gateway on the Accounts Receivable Process Payment screen..</param>
+        public OrderProcessPaymentRequest(decimal amount = default(decimal), string cardVerificationNumberToken = default(string), string rotatingTransactionGatewayCode = default(string))
         {
             this.Amount = amount;
             this.CardVerificationNumberToken = cardVerificationNumberToken;
+            this.RotatingTransactionGatewayCode = rotatingTransactionGatewayCode;
         }
 
         /// <summary>
@@ -56,6 +58,13 @@ namespace com.ultracart.admin.v2.Model
         public string CardVerificationNumberToken { get; set; }
 
         /// <summary>
+        /// Rotating transaction gateway code to process the payment through (optional).  Must be an active rotating transaction gateway on the account.  The charge is attempted on that gateway only, without cascading to other gateways, the same as choosing a gateway on the Accounts Receivable Process Payment screen.
+        /// </summary>
+        /// <value>Rotating transaction gateway code to process the payment through (optional).  Must be an active rotating transaction gateway on the account.  The charge is attempted on that gateway only, without cascading to other gateways, the same as choosing a gateway on the Accounts Receivable Process Payment screen.</value>
+        [DataMember(Name="rotating_transaction_gateway_code", EmitDefaultValue=false)]
+        public string RotatingTransactionGatewayCode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +74,7 @@ namespace com.ultracart.admin.v2.Model
             sb.Append("class OrderProcessPaymentRequest {\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("  CardVerificationNumberToken: ").Append(CardVerificationNumberToken).Append("\n");
+            sb.Append("  RotatingTransactionGatewayCode: ").Append(RotatingTransactionGatewayCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +118,11 @@ namespace com.ultracart.admin.v2.Model
                     this.CardVerificationNumberToken == input.CardVerificationNumberToken ||
                     (this.CardVerificationNumberToken != null &&
                     this.CardVerificationNumberToken.Equals(input.CardVerificationNumberToken))
+                ) && 
+                (
+                    this.RotatingTransactionGatewayCode == input.RotatingTransactionGatewayCode ||
+                    (this.RotatingTransactionGatewayCode != null &&
+                    this.RotatingTransactionGatewayCode.Equals(input.RotatingTransactionGatewayCode))
                 );
         }
 
@@ -124,6 +139,8 @@ namespace com.ultracart.admin.v2.Model
                     hashCode = hashCode * 59 + this.Amount.GetHashCode();
                 if (this.CardVerificationNumberToken != null)
                     hashCode = hashCode * 59 + this.CardVerificationNumberToken.GetHashCode();
+                if (this.RotatingTransactionGatewayCode != null)
+                    hashCode = hashCode * 59 + this.RotatingTransactionGatewayCode.GetHashCode();
                 return hashCode;
             }
         }

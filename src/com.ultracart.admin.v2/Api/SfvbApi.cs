@@ -1563,6 +1563,27 @@ namespace com.ultracart.admin.v2.Api
         /// <returns>ApiResponse of SfvbNotFoundEntry</returns>
         ApiResponse<SfvbNotFoundEntry> FixSfvbNotFoundEntryWithHttpInfo (int storefrontOid, string notFoundId);
         /// <summary>
+        /// Flush the StoreFront page cache
+        /// </summary>
+        /// <remarks>
+        /// Marks every cached page on every storefront of the account out of date, so each re-renders on its next visit.  Templates, settings and files are not changed.  Allowed once per account every 15 minutes; an earlier call answers 429.  Needs an approved storefront_cache.flush request (POST approvals with no storefront_oid and empty params), and every request needs a fresh code. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId">The approval_id of an approved storefront_cache.flush request for this account.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns></returns>
+        void FlushSfvbStoreFrontCache (string approvalId = default(string));
+
+        /// <summary>
+        /// Flush the StoreFront page cache
+        /// </summary>
+        /// <remarks>
+        /// Marks every cached page on every storefront of the account out of date, so each re-renders on its next visit.  Templates, settings and files are not changed.  Allowed once per account every 15 minutes; an earlier call answers 429.  Needs an approved storefront_cache.flush request (POST approvals with no storefront_oid and empty params), and every request needs a fresh code. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId">The approval_id of an approved storefront_cache.flush request for this account.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> FlushSfvbStoreFrontCacheWithHttpInfo (string approvalId = default(string));
+        /// <summary>
         /// Read one affiliate network
         /// </summary>
         /// <remarks>
@@ -9327,6 +9348,29 @@ namespace com.ultracart.admin.v2.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (SfvbNotFoundEntry)</returns>
         System.Threading.Tasks.Task<ApiResponse<SfvbNotFoundEntry>> FixSfvbNotFoundEntryWithHttpInfoAsync (int storefrontOid, string notFoundId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Flush the StoreFront page cache
+        /// </summary>
+        /// <remarks>
+        /// Marks every cached page on every storefront of the account out of date, so each re-renders on its next visit.  Templates, settings and files are not changed.  Allowed once per account every 15 minutes; an earlier call answers 429.  Needs an approved storefront_cache.flush request (POST approvals with no storefront_oid and empty params), and every request needs a fresh code. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId">The approval_id of an approved storefront_cache.flush request for this account.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task FlushSfvbStoreFrontCacheAsync (string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Flush the StoreFront page cache
+        /// </summary>
+        /// <remarks>
+        /// Marks every cached page on every storefront of the account out of date, so each re-renders on its next visit.  Templates, settings and files are not changed.  Allowed once per account every 15 minutes; an earlier call answers 429.  Needs an approved storefront_cache.flush request (POST approvals with no storefront_oid and empty params), and every request needs a fresh code. 
+        /// </remarks>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId">The approval_id of an approved storefront_cache.flush request for this account.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> FlushSfvbStoreFrontCacheWithHttpInfoAsync (string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Read one affiliate network
         /// </summary>
@@ -27393,6 +27437,155 @@ namespace com.ultracart.admin.v2.Api
             return new ApiResponse<SfvbNotFoundEntry>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (SfvbNotFoundEntry) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(SfvbNotFoundEntry)));
+        }
+
+        /// <summary>
+        /// Flush the StoreFront page cache Marks every cached page on every storefront of the account out of date, so each re-renders on its next visit.  Templates, settings and files are not changed.  Allowed once per account every 15 minutes; an earlier call answers 429.  Needs an approved storefront_cache.flush request (POST approvals with no storefront_oid and empty params), and every request needs a fresh code. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId">The approval_id of an approved storefront_cache.flush request for this account.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns></returns>
+        public void FlushSfvbStoreFrontCache (string approvalId = default(string))
+        {
+             FlushSfvbStoreFrontCacheWithHttpInfo(approvalId);
+        }
+
+        /// <summary>
+        /// Flush the StoreFront page cache Marks every cached page on every storefront of the account out of date, so each re-renders on its next visit.  Templates, settings and files are not changed.  Allowed once per account every 15 minutes; an earlier call answers 429.  Needs an approved storefront_cache.flush request (POST approvals with no storefront_oid and empty params), and every request needs a fresh code. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId">The approval_id of an approved storefront_cache.flush request for this account.  See POST /sfvb/approvals. (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> FlushSfvbStoreFrontCacheWithHttpInfo (string approvalId = default(string))
+        {
+
+            var localVarPath = "/sfvb/cache/flush";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("FlushSfvbStoreFrontCache", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Flush the StoreFront page cache Marks every cached page on every storefront of the account out of date, so each re-renders on its next visit.  Templates, settings and files are not changed.  Allowed once per account every 15 minutes; an earlier call answers 429.  Needs an approved storefront_cache.flush request (POST approvals with no storefront_oid and empty params), and every request needs a fresh code. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId">The approval_id of an approved storefront_cache.flush request for this account.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task FlushSfvbStoreFrontCacheAsync (string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await FlushSfvbStoreFrontCacheWithHttpInfoAsync(approvalId, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Flush the StoreFront page cache Marks every cached page on every storefront of the account out of date, so each re-renders on its next visit.  Templates, settings and files are not changed.  Allowed once per account every 15 minutes; an earlier call answers 429.  Needs an approved storefront_cache.flush request (POST approvals with no storefront_oid and empty params), and every request needs a fresh code. 
+        /// </summary>
+        /// <exception cref="com.ultracart.admin.v2.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="approvalId">The approval_id of an approved storefront_cache.flush request for this account.  See POST /sfvb/approvals. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> FlushSfvbStoreFrontCacheWithHttpInfoAsync (string approvalId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/sfvb/cache/flush";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (approvalId != null) localVarHeaderParams.Add("Approval-Id", this.Configuration.ApiClient.ParameterToString(approvalId)); // header parameter
+
+            // authentication (ultraCartOauth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+            // authentication (ultraCartSimpleApiKey) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key")))
+            {
+                localVarHeaderParams["x-ultracart-simple-key"] = this.Configuration.GetApiKeyWithPrefix("x-ultracart-simple-key");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("FlushSfvbStoreFrontCache", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
         }
 
         /// <summary>

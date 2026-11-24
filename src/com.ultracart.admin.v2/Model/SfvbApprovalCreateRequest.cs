@@ -236,10 +236,16 @@ namespace com.ultracart.admin.v2.Model
             PageMove = 33,
 
             /// <summary>
+            /// Enum StorefrontcacheFlush for value: storefront_cache.flush
+            /// </summary>
+            [EnumMember(Value = "storefront_cache.flush")]
+            StorefrontcacheFlush = 34,
+
+            /// <summary>
             /// Enum CliLocation for value: cli.location
             /// </summary>
             [EnumMember(Value = "cli.location")]
-            CliLocation = 34
+            CliLocation = 35
 
         }
 
